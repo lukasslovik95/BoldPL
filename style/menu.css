@@ -1,0 +1,298 @@
+/* ############################ */
+/* ########## HEADER ########## */
+/* ############################ */
+header.header {
+  transition: .3s;
+  height: 100px;
+  z-index: 1000;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 17px;
+}
+
+.open-menu header.header nav {
+  height: 100vh;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo a {
+  font-size: 18px;
+  color: #FFF;
+}
+
+/* ################################## */
+/* ########## FIXED HEADER ########## */
+/* ################################## */
+header.header.fixed-header {
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation: smoothScroll 0.5s forwards;
+  background: rgba(255, 255, 255, 0.8);
+  margin-top: 0;
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.1);
+}
+
+@keyframes smoothScroll {
+  0% {
+    transform: translateY(-190px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+body:not(.open-menu) header.header.fixed-header {
+  backdrop-filter: blur(4px);
+}
+
+header.header.fixed-header .top-menu li a,
+header.header.fixed-header .header__logo a {
+  color: #000;
+}
+
+/* #################################### */
+/* ########## HAMBURGER ICON ########## */
+/* #################################### */
+.menu-opener {
+  display: none;
+  position: fixed;
+  z-index: 16000;
+  right: 6px;
+  top: 2px;
+  width: 35px;
+  height: 35px;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.menu-opener span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  left: 5px;
+  width: calc(100% - 10px);
+  background: #fff;
+  border-radius: 2px;
+  opacity: 1;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+header.header.fixed-header .menu-opener span {
+  background: #000;
+}
+
+.menu-opener.open span {
+  background: #000;
+  height: 2px;
+}
+
+.menu-opener span:nth-child(1) {
+  top: 8px;
+}
+
+.menu-opener span:nth-child(2),
+.menu-opener span:nth-child(3) {
+  top: 16px;
+}
+
+.menu-opener span:nth-child(4) {
+  top: 24px;
+}
+
+.menu-opener.open span:nth-child(1) {
+  top: 12px;
+  width: 0;
+  left: 50%;
+}
+
+.menu-opener.open span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.menu-opener.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.menu-opener.open span:nth-child(4) {
+  top: 10px;
+  width: 0;
+  left: 50%;
+}
+
+/* ########################################### */
+/* ########## RESPONSIVE WEB DESIGN ########## */
+/* ########################################### */
+@media all and (min-width: 767px) {
+
+  .top-menu {
+    height: 100%;
+    padding-right: 10px;
+  }
+
+  .top-menu ul {
+    display: flex;
+    height: 100%;
+  }
+
+  .top-menu li {
+    line-height: 16.8px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+
+  .top-menu li:last-child {
+    margin-right: 0;
+  }
+
+  .top-menu li a {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    transition: .3s;
+    color: #FFF;
+    text-transform: uppercase;
+    padding: 5px 0;
+  }
+
+  .top-menu li a:after {
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    background: #FFF;
+    transition: .4s;
+    width: 0;
+  }
+
+  header.header.fixed-header .top-menu li a:after {
+    background: #000;
+  }
+
+  .top-menu li a:hover:after {
+    width: 100%;
+  }
+
+  .top-menu > ul > li.current a,
+  .top-menu > ul > li.current a {
+    transform: scale(1.2);
+    font-weight: 600;
+  }
+
+}
+
+@media all and (max-width: 1199px) {
+
+  header.header {
+    margin-top: 10px;
+    height: 70px;
+  }
+
+}
+
+@media all and (max-width: 767px) {
+
+  header.header.fixed-header {
+    height: 50px;
+  }
+
+  body.open-menu {
+    overflow-y: hidden;
+  }
+
+  .menu-opener {
+    display: block;
+  }
+
+  .top-menu {
+    margin: 0;
+    position: fixed;
+    z-index: 998;
+    background: rgb(255,255,255);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity .35s;
+    transition: opacity .35s;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .top-menu.open {
+    visibility: visible;
+    height: 100%;
+    overflow-y: auto;
+    opacity: 1;
+    top: 0;
+  }
+
+  .top-menu li {
+    margin: 0;
+    border-bottom: 1px solid #000;
+  }
+
+  .top-menu li:first-child {
+    border-top: 1px solid #000;
+  }
+
+  .top-menu li a {
+    color: #000;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+    transition: .3s
+  }
+
+  .top-menu li.active a,
+  .top-menu li a:hover ,
+  .top-menu li a:focus {
+    font-weight: 900;
+  }
+
+  ul.top-menu-in {
+    margin-top: 50px;
+  }
+
+  nav.top-menu ul li a {
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
+@media all and (max-width: 575px) {
+
+  header.header {
+    margin-top: 5px;
+    height: 50px;
+  }
+
+}

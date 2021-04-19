@@ -1,0 +1,59 @@
+/* ############################ */
+/* ########## BUTTON ########## */
+/* ############################ */
+.btn {
+	border: none;
+	color: #fff;
+	font-size: 14px;
+	line-height: 17px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 50px;
+	min-width: 160px;
+	padding: 0 10px;
+	text-decoration: none;
+	text-transform: uppercase;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	transition: .3s;
+	border-radius: 6px;
+}
+
+/* #################################### */
+/* ########## BUTTON PRIMARY ########## */
+/* #################################### */
+.btn--primary {
+	background-color: #FFF;
+	color: #ED4C5C;
+}
+
+.btn--primary:not(.not-hover):hover,
+.btn--primary.active,
+.btn--primary:focus,
+a:hover .btn--primary {
+	box-shadow: 0 0 15px 0 rgba(255,255,255,0.7);
+	letter-spacing: 1px;
+	text-shadow: 0 0 20px rgba(237, 76, 92, 0.7);
+}
+
+/* ###################################### */
+/* ########## BUTTON SECONDARY ########## */
+/* ###################################### */
+.btn--secondary {
+	background-color: #ED4C5C;
+	color: #FFF;
+}
+
+.btn--secondary:not(.not-hover):hover,
+.btn--secondary.active,
+.btn--secondary:focus,
+a:hover .btn--secondary {
+	text-shadow: 0 0 15px 0 rgba(255,255,255,0.7);
+	letter-spacing: 1px;
+	box-shadow: 0 0 20px rgba(237, 76, 92, 0.7);
+}

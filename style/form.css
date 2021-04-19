@@ -1,0 +1,96 @@
+.form-field {
+	margin-bottom: 25px;
+}
+
+.form-field input::placeholder {
+	color: rgba(19, 39, 67, 0.5);
+}
+
+/* ########################### */
+/* ########## INPUT ########## */
+/* ########################### */
+.form-field input:not(.btn), .form-field select {
+	height: 60px;
+	line-height: 19.2px;
+	background-color: transparent;
+	border: 1px solid rgba(51, 51, 51, 1);
+	display: block;
+	padding: 20px 30px;
+	width: 100%;
+	font-size: 16px;
+	transition: all 0.3s ease-in-out;
+	border-radius: 6px;
+}
+
+select::-ms-expand {
+  display: none; /* remove default arrow on IE10 and IE11 */
+}
+
+.form-field input:not([disabled]):focus,
+.form-field select:focus {
+	box-shadow: inset 0 0 20px -15px rgba(0,0,0,0.9);
+	outline: 0;
+}
+
+.form-field__select {
+	overflow: hidden;
+	position: relative;
+	display: block;
+}
+
+.form-field__select select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.form-field__select:after {
+	content:"\f078";
+	font-family:"Font Awesome 5 Pro";
+	font-size: 16px;
+	color: rgba(19, 39, 67, 0.5);
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 1;
+	text-align: center;
+	height: 100%;
+	pointer-events: none;
+	padding: 20px 30px;
+	box-sizing: border-box;
+	transition: .3s;
+}
+
+select:required:invalid {
+	color: rgba(19, 39, 67, 0.5);
+}
+
+option[value=""][disabled] {
+	display: none;
+}
+
+option {
+	color: #000;
+}
+
+/* ################################ */
+/* ########## VALIDATION ########## */
+/* ################################ */
+input.error:not([disabled]),
+textarea.error:not([disabled]),
+select.error {
+	border-color:#c51331;
+}
+
+label.error {
+	display:none;
+	color:#c51331;
+	font-size:12px;
+	line-height:16px;
+	font-weight:normal;
+	position: relative;
+	bottom: 0;
+}
+
+@media all and (max-width: 991px) {
+}
